@@ -21,12 +21,12 @@ bson_configure_globals :-
 
 bson_configure_load_paths :-
     prolog_load_context(directory, Root), % Available only during compilation.
-    bson_configure_path(Root, '/lib', foreign),
-    bson_configure_path(Root, '/src/misc', misc),
-    bson_configure_path(Root, '/src', bson).
+    bson_configure_path(Root, 'lib', foreign),
+    bson_configure_path(Root, 'src/misc', misc),
+    bson_configure_path(Root, 'src', bson).
 
 bson_configure_path(PathPrefix, PathSuffix, Name) :-
-    atom_concat(PathPrefix, PathSuffix, Path),
+    atomic_list_concat([PathPrefix,PathSuffix], '/', Path),
     asserta(user:file_search_path(Name, Path)).
 
 % Set everything up.
