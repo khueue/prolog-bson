@@ -34,7 +34,7 @@ test('float, pi', [true(Got == Expected)]) :-
 
 :- end_tests('bson_bits:float_bytes/2').
 
-:- begin_tests('bson_bits:integer_bytes/4').
+:- begin_tests('bson_bits:integer_bytes/4, 32-bit big-endian').
 
 test('32-bit, bad input, result undefined', [true(Got \== Expected)]) :-
     Expected = bad(input),
@@ -80,7 +80,9 @@ test('32-bit big-endian, max+1', [true(Got \== Expected)]) :-
     bson_bits:integer_bytes(Expected, 4, big, Bytes),
     bson_bits:integer_bytes(Got,      4, big, Bytes).
 
-% ------------------------------------
+:- end_tests('bson_bits:integer_bytes/4, 32-bit big-endian').
+
+:- begin_tests('bson_bits:integer_bytes/4, 32-bit little-endian').
 
 test('32-bit little-endian, zero', [true(Got == Expected)]) :-
     Expected = 0,
@@ -121,7 +123,9 @@ test('32-bit little-endian, max+1', [true(Got \== Expected)]) :-
     bson_bits:integer_bytes(Expected, 4, little, Bytes),
     bson_bits:integer_bytes(Got,      4, little, Bytes).
 
-% ------------------------------------
+:- end_tests('bson_bits:integer_bytes/4, 32-bit little-endian').
+
+:- begin_tests('bson_bits:integer_bytes/4, 64-bit big-endian').
 
 test('64-bit, bad input, result undefined', [true(Got \== Expected)]) :-
     Expected = bad(input),
@@ -167,7 +171,9 @@ test('64-bit big-endian, max+1', [true(Got \== Expected)]) :-
     bson_bits:integer_bytes(Expected, 8, big, Bytes),
     bson_bits:integer_bytes(Got,      8, big, Bytes).
 
-% ------------------------------------
+:- end_tests('bson_bits:integer_bytes/4, 64-bit big-endian').
+
+:- begin_tests('bson_bits:integer_bytes/4, 64-bit little-endian').
 
 test('64-bit little-endian, zero', [true(Got == Expected)]) :-
     Expected = 0,
@@ -208,7 +214,7 @@ test('64-bit little-endian, max+1', [true(Got \== Expected)]) :-
     bson_bits:integer_bytes(Expected, 8, little, Bytes),
     bson_bits:integer_bytes(Got,      8, little, Bytes).
 
-:- end_tests('bson_bits:integer_bytes/4').
+:- end_tests('bson_bits:integer_bytes/4, 64-bit little-endian').
 
 :- begin_tests('bson_bits:hex_bytes/2').
 
