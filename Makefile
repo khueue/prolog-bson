@@ -25,10 +25,10 @@ repl: compile
 compile: setup lib/bson_bits
 
 # Generic name (not sure what file extensions different systems use).
-lib/bson_bits: ext/bson_bits.c Makefile
+lib/bson_bits: src/foreign/bson_bits.c Makefile
 	@ echo "--- Compile foreign library 'bson_bits' ..."
 	rm -f $@
-	$(PROLOG_LD) -o $@.dylib ext/bson_bits.c $(FLAGS) -cc $(CC)
+	$(PROLOG_LD) -o $@.dylib src/foreign/bson_bits.c $(FLAGS) -cc $(CC)
 	mv $@.dylib $@
 
 .PHONY: setup
