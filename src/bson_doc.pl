@@ -16,7 +16,7 @@
         doc_keys_values/3
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 %%  doc_is_valid(+Doc) is semidet.
 %

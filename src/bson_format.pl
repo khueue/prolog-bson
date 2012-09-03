@@ -7,7 +7,7 @@
         pp/3
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 %%  pp(+Doc) is det.
 %

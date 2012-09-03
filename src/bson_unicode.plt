@@ -1,4 +1,4 @@
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 :- begin_tests('bson_unicode:utf8_bytes/2').
 

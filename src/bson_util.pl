@@ -11,7 +11,7 @@
         atom_contains/2
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 %%  list_shaped(+Term) is semidet.
 %

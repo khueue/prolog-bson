@@ -1,4 +1,4 @@
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 :- begin_tests('bson_encoder:docs_to_bytes/2').
 

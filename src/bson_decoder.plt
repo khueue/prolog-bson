@@ -1,4 +1,4 @@
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 % Note: The first four bytes in a document represent an integer
 % that dictates the total byte length of the document. This is currently

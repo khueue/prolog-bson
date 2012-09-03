@@ -11,7 +11,7 @@
         utf8_bytes_size/3
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 %%  utf8_bytes(+Utf8, ?Bytes) is semidet.
 %%  utf8_bytes(?Utf8, +Bytes) is semidet.

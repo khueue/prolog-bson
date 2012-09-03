@@ -11,7 +11,7 @@
         docs_to_bytes/3
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 %%  doc_to_bytes(+Doc, ?Bytes) is semidet.
 %%  doc_to_bytes(+Doc, ?Bytes, ?NumBytes) is semidet.
@@ -83,7 +83,7 @@ value(Value, Tag, Len) -->
     { core:float(Value) }, !,
     value_float(Value, Tag, Len).
 value(Value, Tag, Len) -->
-    { util:list_shaped(Value) }, !, % Must be before atom, [] is considered one!
+    { bson_util:list_shaped(Value) }, !, % Must be before atom, [] is considered one!
     value_list(Value, Tag, Len).
 value(Value, Tag, Len) -->
     { core:atom(Value) }, !,

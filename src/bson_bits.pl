@@ -14,7 +14,7 @@
         fits_in_64_bits/1
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 :- use_foreign_library(foreign(bson_bits)).
 

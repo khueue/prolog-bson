@@ -22,7 +22,6 @@ bson_configure_globals :-
 bson_configure_load_paths :-
     prolog_load_context(directory, Root), % Available only during compilation.
     bson_configure_path(Root, 'lib', foreign),
-    bson_configure_path(Root, 'src/misc', misc),
     bson_configure_path(Root, 'src', bson).
 
 bson_configure_path(PathPrefix, PathSuffix, Name) :-
@@ -37,7 +36,7 @@ bson_configure_path(PathPrefix, PathSuffix, Name) :-
 % but I haven't noticed much difference.
 % :- use_module(library(apply_macros)).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 bson_load_project_modules :-
     use_module(library(pldoc), []), % Load first to enable comment processing.

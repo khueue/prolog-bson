@@ -1,4 +1,4 @@
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 :- begin_tests('bson_doc:doc_is_valid/1').
 

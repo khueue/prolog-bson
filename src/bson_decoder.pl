@@ -9,7 +9,7 @@
         bytes_to_docs/2
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 %%  bytes_to_doc(+Bytes, ?Doc) is semidet.
 %

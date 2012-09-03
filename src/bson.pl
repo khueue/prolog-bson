@@ -19,10 +19,10 @@
         bson_doc
     ]).
 
-:- include(misc(common)).
+:- include(bson(include/common)).
 
 % Internal modules.
-:- use_module(misc(util), []).
+:- use_module(bson_util, []).
 :- use_module(bson_decoder, []).
 :- use_module(bson_encoder, []).
 :- use_module(bson_bits, []).
