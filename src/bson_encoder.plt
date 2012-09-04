@@ -518,7 +518,7 @@ test('0x12, int64', [true(Got == Expected)]) :-
     ],
     bson_encoder:doc_to_bytes(Doc, Got).
 
-test('0x12, int64 too large', [throws(bson_error(too_large(_)))]) :-
+test('0x12, int64 too large', [throws(bson_error('too large', _EnvList))]) :-
     Doc =
     [
         hello - 9223372036854775808
@@ -553,7 +553,7 @@ test('0x7f, max', [true(Got == Expected)]) :-
     ],
     bson_encoder:doc_to_bytes(Doc, Got).
 
-test('invalid', [throws(bson_error(invalid))]) :-
+test('invalid', [throws(bson_error('invalid document(s)', _EnvList))]) :-
     Doc = invalid_bson,
     bson_encoder:doc_to_bytes(Doc, _Got).
 

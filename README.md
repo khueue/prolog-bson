@@ -11,7 +11,7 @@ Prolog MongoDB driver prolongo, <https://github.com/khueue/prolongo>.
 
 ## Todo
 
- * Make exceptions more idiomatic: bson_error(Desc, EnvList).
+ * Nothing for now.
 
 ## Usage
 

@@ -52,7 +52,7 @@ spec_version([1,0]).
 %   @param Docs is a list of key-value pair lists.
 %   @param Bytes is a list of bytes (in 0..255).
 %
-%   @throws bson_error(Reason)
+%   @throws bson_error(Description, EnvList)
 
 docs_bytes(Docs, Bytes) :-
     core:nonvar(Bytes),
@@ -63,7 +63,7 @@ docs_bytes(Docs, Bytes) :-
     !,
     bson_encoder:docs_to_bytes(Docs, Bytes).
 docs_bytes(_Docs, _Bytes) :-
-    throw(bson_error('at least one arg must be instantiated')).
+    throw(bson_error('at least one arg must be instantiated', [])).
 
 %%  doc_bytes(+Doc, ?Bytes) is semidet.
 %%  doc_bytes(?Doc, +Bytes) is semidet.
@@ -73,7 +73,7 @@ docs_bytes(_Docs, _Bytes) :-
 %   @param Doc is a list of key-value pairs.
 %   @param Bytes is a list of bytes (in 0..255).
 %
-%   @throws bson_error(Reason)
+%   @throws bson_error(Description, EnvList)
 
 doc_bytes(Doc, Bytes) :-
     core:nonvar(Bytes),
@@ -84,4 +84,4 @@ doc_bytes(Doc, Bytes) :-
     !,
     bson_encoder:doc_to_bytes(Doc, Bytes).
 doc_bytes(_Doc, _Bytes) :-
-    throw(bson_error('at least one arg must be instantiated')).
+    throw(bson_error('at least one arg must be instantiated', [])).

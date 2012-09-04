@@ -15,7 +15,7 @@
 %
 %   True if Bytes is the BSON byte-encoding of Doc.
 %
-%   @throws bson_error(Reason)
+%   @throws bson_error(Description, EnvList)
 
 bytes_to_doc(Bytes, Doc) :-
     bytes_to_docs(Bytes, [Doc]).
@@ -25,15 +25,15 @@ bytes_to_doc(Bytes, Doc) :-
 %   True if Bytes is the flat-list BSON byte-encoding of all the
 %   documents in the list Docs.
 %
-%   @throws bson_error(Reason)
+%   @throws bson_error(Description, EnvList)
 
 bytes_to_docs([], []) :- !.
 bytes_to_docs(Bytes, [Doc|Docs]) :-
     phrase(document(Doc), Bytes, RestBytes),
     !,
     bytes_to_docs(RestBytes, Docs).
-bytes_to_docs(_Bytes, _Docs) :-
-    throw(bson_error(invalid)).
+bytes_to_docs(Bytes, _Docs) :-
+    throw(bson_error('invalid bson bytes', [Bytes])).
 
 % Note: This predicate does no validation on the length of the document
 % being parsed. The document is either valid and therefore successfully
@@ -110,9 +110,10 @@ value_max(+max) --> [].
 
 value_undefined(+undefined) --> [].
 
-value_boolean(+false) --> [0], !.
-value_boolean(+true)  --> [1], !.
-value_boolean(_)      --> { throw(bson_error(invalid_boolean)) }.
+value_boolean(+false)  --> [0], !.
+value_boolean(+true)   --> [1], !.
+value_boolean(Unknown) -->
+    { throw(bson_error('unknown boolean', [Unknown])) }.
 
 value_binary(binary(Subtype,Bytes)) -->
     int32(Length),

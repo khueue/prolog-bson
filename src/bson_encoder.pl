@@ -19,7 +19,7 @@
 %   True if Bytes is the flat-list BSON byte-encoding of Doc.
 %   NumBytes is the number of bytes in Bytes.
 %
-%   @throws bson_error(Reason)
+%   @throws bson_error(Description, EnvList)
 
 doc_to_bytes(Doc, Bytes) :-
     doc_to_bytes(Doc, Bytes, _NumBytes).
@@ -34,7 +34,7 @@ doc_to_bytes(Doc, Bytes, NumBytes) :-
 %   documents in the list Docs.
 %   NumBytes is the total number of bytes in Bytes.
 %
-%   @throws bson_error(Reason)
+%   @throws bson_error(Description, EnvList)
 
 docs_to_bytes(Docs, Bytes) :-
     docs_to_bytes(Docs, Bytes, _NumBytes).
@@ -48,8 +48,8 @@ docs_to_bytes([Doc|Docs], Bytes, Len0, Len) :-
     !,
     Len2 is Len0 + Len1,
     docs_to_bytes(Docs, RestBytes, Len2, Len).
-docs_to_bytes(_Docs, _, _, _) :-
-    throw(bson_error(invalid)).
+docs_to_bytes(Docs, _, _, _) :-
+    throw(bson_error('invalid document(s)', [Docs])).
 
 document(Elements, Len) -->
     bytes_n(BytesForLen, 4),
@@ -126,8 +126,8 @@ value_compound(mongostamp(Timestamp), 0x11, 8) -->
     int64(Timestamp).
 value_compound(symbol(Atom), 0x0e, Len) --> % Deprecated.
     string(Atom, Len).
-value_compound(Compound, _Tag, _Len) -->
-    { throw(bson_error(invalid(Compound))) }.
+value_compound(Unknown, _Tag, _Len) -->
+    { throw(bson_error('unknown compound', [Unknown])) }.
 
 subtype(generic)      --> !, [0x00].
 subtype(function)     --> !, [0x01].
@@ -136,8 +136,8 @@ subtype(uuid_old)     --> !, [0x03]. % Deprecated.
 subtype(uuid)         --> !, [0x04].
 subtype(md5)          --> !, [0x05].
 subtype(user_defined) --> !, [0x80].
-subtype(Subtype)      -->
-    { throw(bson_error(unknown_subtype(Subtype))) }.
+subtype(Unknown)      -->
+    { throw(bson_error('unknown subtype', [Unknown])) }.
 
 value_list(Pairs, 0x03, Len) -->
     document(Pairs, Len),
@@ -168,7 +168,7 @@ value_integer(Integer, 0x12, 8) -->
     !,
     int64(Integer).
 value_integer(Integer, _, _) -->
-    { throw(bson_error(too_large(Integer))) }.
+    { throw(bson_error('too large', [Integer])) }.
 
 bytes_n([], 0) --> [], !.
 bytes_n([Byte|Bytes], Len0) -->
@@ -192,8 +192,8 @@ value_constant(true,      0x08, 1) --> [1], !.
 value_constant(null,      0x0a, 0) --> [], !.
 value_constant(min,       0xff, 0) --> [], !.
 value_constant(max,       0x7f, 0) --> [], !.
-value_constant(Constant,  _,    _) -->
-    { throw(bson_error(unknown_constant(Constant))) }.
+value_constant(Unknown,   _,    _) -->
+    { throw(bson_error('unknown constant', [Unknown])) }.
 
 value_atom(Atom, 0x02, Len) -->
     string(Atom, Len).

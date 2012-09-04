@@ -97,7 +97,7 @@ test('0x02, string', [true(Got == Expected)]) :-
     ],
     bson_decoder:bytes_to_doc(Bytes, Got).
 
-test('0x02, nuls not allowed in ename', [throws(bson_error(_))]) :-
+test('0x02, nuls not allowed in ename', [throws(bson_error(_Desc, _EnvList))]) :-
     Bytes =
     [
         doc,length,not,implemented, % Length of top doc.
@@ -379,7 +379,9 @@ test('0x08, boolean false', [true(Got == Expected)]) :-
     ],
     bson_decoder:bytes_to_doc(Bytes, Got).
 
-test('0x08, boolean invalid', [throws(bson_error(invalid_boolean))]) :-
+test('0x08, boolean invalid', [
+        throws(bson_error('unknown boolean', _EnvList))
+    ]) :-
     Bytes =
     [
         doc,length,not,implemented, % Length of top doc.
@@ -582,7 +584,9 @@ test('0x7f, max', [true(Got == Expected)]) :-
     ],
     bson_decoder:bytes_to_doc(Bytes, Got).
 
-test('invalid bson, missing terminating nul', [throws(bson_error(invalid))]) :-
+test('invalid bson, missing terminating nul', [
+        throws(bson_error('invalid bson bytes', _EnvList))
+    ]) :-
     Bytes =
     [
         doc,length,not,implemented, % Length of top doc.

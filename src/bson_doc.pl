@@ -29,7 +29,7 @@
 doc_is_valid(Doc) :-
     catch(
         bson:doc_bytes(Doc, _Bytes),
-        bson_error(_),
+        bson_error(_Description, _EnvList),
         fail).
 
 %%  doc_empty(?Doc) is semidet.
