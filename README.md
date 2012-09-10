@@ -17,7 +17,8 @@ Prolog MongoDB driver prolongo, <https://github.com/khueue/prolongo>.
 
 ## Usage
 
-Clone the repository and run `make` to compile the necessary C libraries
+Clone the repository, switch to a certain release if you like (`git
+checkout v1.0.0`) and run `make` to compile the necessary C libraries
 and run the test suite. See the tests (*.plt) in the src folder for usage
 examples.
 
