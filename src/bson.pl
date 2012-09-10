@@ -34,7 +34,7 @@
 %   True if Version is a list representing the major, minor
 %   and patch version numbers of this library.
 
-version([0,0,1]).
+version([1,0,0]).
 
 %%  spec_version(?Version) is semidet.
 %

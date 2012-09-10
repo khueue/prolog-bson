@@ -5,9 +5,11 @@ Prolog MongoDB driver prolongo, <https://github.com/khueue/prolongo>.
 
 ## Release History
 
-### Version 1.0.0 (not yet released)
+### Version 1.0.0 (2012-09-10)
 
- * First release as a separate project (previously included in prolongo).
+ * First release as a separate project (previously included in
+<https://github.com/khueue/prolongo>).
+ * Exceptions now follow: `bson_error(DescriptionAtom, ListOfRelatedVars)`
 
 ## Todo
 
