@@ -8,7 +8,7 @@ test('no docs', [true(Got == Expected)]) :-
     bson:docs_bytes(Expected, Bytes),
     bson:docs_bytes(Got, Bytes).
 
-test('complex doc back-and-forth', [true(Got == Expected)]) :-
+test('several complex docs back-and-forth', [true(Got == Expected)]) :-
     Doc =
     [
         k01 - -5.05,
