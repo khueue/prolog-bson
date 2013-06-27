@@ -4,7 +4,7 @@ CC        = gcc
 FLAGS     = -shared -fPIC -O4 -Wall -Wextra -cc-options,-ansi,-pedantic
 
 .PHONY: all
-all: compile test
+all: clean compile test
 
 .PHONY: test
 test: compile
