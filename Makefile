@@ -1,7 +1,7 @@
 PROLOG    = swipl -O
 PROLOG_LD = swipl-ld
 CC        = gcc
-FLAGS     = -shared -fPIC -O4 -Wall -Wextra -cc-options,-ansi,-pedantic
+FLAGS     = -shared -fPIC -O3 -Wall -Wextra -cc-options,-ansi,-pedantic
 
 .PHONY: all
 all: clean compile test
