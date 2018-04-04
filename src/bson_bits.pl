@@ -1,8 +1,8 @@
 /** <module> Low-level bytes-to-number conversions.
  *
- *  Note: This module favors little-endian conversions, meaning
+ *  NOTE: This module favors little-endian conversions, meaning
  *  that big-endian conversions are little-endian with a reverse.
- *  This should probably be fixed in future versions.
+ *  @tbd This should probably be optimized in future versions.
  */
 
 :- module(_, [

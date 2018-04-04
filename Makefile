@@ -3,8 +3,8 @@ PROLOG_LD = swipl-ld
 CC        = gcc
 FLAGS     = -shared -fPIC -O3 -Wall -Wextra -cc-options,-ansi,-pedantic
 
-.PHONY: all
-all: clean compile test
+.PHONY: default
+default: clean compile test
 
 .PHONY: test
 test: compile
@@ -39,4 +39,5 @@ lib:
 
 .PHONY: clean
 clean:
+	@ echo "--- Clean ..."
 	rm -rf lib/*

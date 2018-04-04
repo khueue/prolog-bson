@@ -21,7 +21,7 @@
 %
 %   True if Doc is a valid BSON document.
 %
-%   Note: Right now, this is accomplished by converting it to bytes
+%   NOTE: Right now, this is accomplished by converting it to bytes
 %   and failing if an exception is thrown. This can probably be done
 %   more efficiently.
 
