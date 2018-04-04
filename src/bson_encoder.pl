@@ -3,13 +3,12 @@
  *  This module is private. See bson.
  */
 
-:- module(_,
-    [
-        doc_to_bytes/2,
-        doc_to_bytes/3,
-        docs_to_bytes/2,
-        docs_to_bytes/3
-    ]).
+:- module(_, [
+    doc_to_bytes/2,
+    doc_to_bytes/3,
+    docs_to_bytes/2,
+    docs_to_bytes/3
+]).
 
 :- include(bson(include/common)).
 

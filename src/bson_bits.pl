@@ -5,14 +5,13 @@
  *  This should probably be fixed in future versions.
  */
 
-:- module(_,
-    [
-        float_bytes/2,
-        integer_bytes/4,
-        hex_bytes/2,
-        fits_in_32_bits/1,
-        fits_in_64_bits/1
-    ]).
+:- module(_, [
+    float_bytes/2,
+    integer_bytes/4,
+    hex_bytes/2,
+    fits_in_32_bits/1,
+    fits_in_64_bits/1
+]).
 
 :- include(bson(include/common)).
 

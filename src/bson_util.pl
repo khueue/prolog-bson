@@ -1,10 +1,9 @@
 /** <module> Various utility predicates.
  */
 
-:- module(_,
-    [
-        list_shaped/1
-    ]).
+:- module(_, [
+    list_shaped/1
+]).
 
 :- include(bson(include/common)).
 

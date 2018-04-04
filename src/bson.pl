@@ -5,19 +5,17 @@
  *  @see <http://bsonspec.org/>
  */
 
-:- module(_,
-    [
-        doc_bytes/2,
-        docs_bytes/2,
-        version/1,
-        spec_version/1
-        % And see reexports below.
-    ]).
+:- module(_, [
+    doc_bytes/2,
+    docs_bytes/2,
+    version/1,
+    spec_version/1
+    % And see reexports below.
+]).
 
-:- reexport(
-    [
-        bson_doc
-    ]).
+:- reexport([
+    bson_doc
+]).
 
 :- include(bson(include/common)).
 

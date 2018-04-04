@@ -1,11 +1,10 @@
 /** <module> Pretty-printing for BSON documents.
  */
 
-:- module(_,
-    [
-        pp/1,
-        pp/3
-    ]).
+:- module(_, [
+    pp/1,
+    pp/3
+]).
 
 :- include(bson(include/common)).
 

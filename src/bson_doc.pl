@@ -3,18 +3,17 @@
  *  Most of these predicates run in O(n), but that may change.
  */
 
-:- module(_,
-    [
-        doc_is_valid/1,
-        doc_empty/1,
-        doc_get/3,
-        doc_get_strict/3,
-        doc_put/4,
-        doc_delete/3,
-        doc_keys/2,
-        doc_values/2,
-        doc_keys_values/3
-    ]).
+:- module(_, [
+    doc_is_valid/1,
+    doc_empty/1,
+    doc_get/3,
+    doc_get_strict/3,
+    doc_put/4,
+    doc_delete/3,
+    doc_keys/2,
+    doc_values/2,
+    doc_keys_values/3
+]).
 
 :- include(bson(include/common)).
 
