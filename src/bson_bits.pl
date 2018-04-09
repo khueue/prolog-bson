@@ -42,7 +42,10 @@ float_bytes(Float, Bytes) :-
 %
 %   True if Integer is the signed integer represented by the bytes
 %   in Bytes, given NumBytes 4 or 8 and Endian little or big.
+%
 %   Results are undefined if Integer cannot fit in NumBytes bytes.
+%   For added safety, use fits_in_32_bits/1 and fits_in_64_bits/1
+%   beforehand.
 %
 %   Uses C library for actual conversions.
 
